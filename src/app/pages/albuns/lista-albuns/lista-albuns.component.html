@@ -1,0 +1,87 @@
+<section class="container-sm text-center">
+  <div class="row justify-content-end">
+    <h1 class="mt-4 mb-5">Lista de Álbuns</h1>
+
+    <button
+      type="button"
+      class="mx-2 col-6 col-md-3 col-lg-2 btn btn-success"
+      (click)="newAlbum()"
+    >
+    <i class="bi bi-plus-lg"></i>
+    Novo Álbum
+    </button>
+    <table class="table mt-4"  *ngIf="albunsList.length > 0; else emptyAlbunsList">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nomes</th>
+          <th scope="col">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let albuns of albunsList">
+          <th>1</th>
+          <td colspan="1">Album 1</td>
+          <td class="just-content-between">
+            <button
+              class="btn btn-primary btn-sm mx-2"
+            >
+              <i class="bi bi-pencil-square"></i>
+              Editar
+            </button>
+            <button
+              class="btn btn-danger btn-sm"
+            >
+            <i class="bi bi-trash"></i>
+              Apagar
+            </button>
+        </td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td colspan="1">Album 2</td>
+          <td class="just-content-between">
+            <button
+              class="btn btn-primary btn-sm mx-2"
+            >
+              <i class="bi bi-pencil-square"></i>
+              Editar
+            </button>
+            <button
+              class="btn btn-danger btn-sm"
+            >
+              <i class="bi bi-trash"></i>
+              Apagar
+            </button>
+        </td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td colspan="1">Album 3</td>
+          <td class="just-content-between">
+            <button
+              class="btn btn-primary btn-sm mx-2"
+            >
+              <i class="bi bi-pencil-square"></i>
+              Editar
+            </button>
+            <button
+              class="btn btn-danger btn-sm"
+            >
+              <i class="bi bi-trash"></i>
+              Apagar
+            </button>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ng-template #emptyAlbunsList>
+      <div class="warning">
+        <p><strong>Nenhum álbum cadastrado até o momento!</strong></p>
+      </div>
+    </ng-template>
+  </div>
+</section>
+
+

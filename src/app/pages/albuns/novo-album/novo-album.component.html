@@ -1,0 +1,39 @@
+<section class="container-sm">
+  <h1 class="mt-4 mb-5 text-center">Novo Álbum</h1>
+  <form class="row justify-content-center" [formGroup]="albumForm">
+    <div class="mb-3 col-12 col-md-8">
+      <label class="form-label justify-content-end">Nome do álbum*</label>
+      <input type="text" class="form-control" formControlName="albumName" placeholder="Digite o nome do álbum...">
+    </div>
+
+    <div class="dropzone mb-3 col-12 col-md-8 col-lg-8" ngx-dropzone [accept]="'image/*'" (change)="onSelect($event)">
+      <ngx-dropzone-label>
+        <h2>Adicionar imagem <i class="bi bi-file-earmark-image"></i></h2>
+      </ngx-dropzone-label>
+      <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true">
+        <ngx-dropzone-label>{{ f.name }} </ngx-dropzone-label>
+      </ngx-dropzone-image-preview>
+    </div>
+
+    <div class="grid-buttom text-center mt-3 mb-5">
+      <button
+        type="button"
+        class=" col-12 col-md-3 col-lg-2 btn btn-danger button"
+        (click)="cancel()"
+      >
+        <i class="bi bi-x-lg"></i>
+        Cancelar
+      </button>
+
+      <button
+        type="button"
+        class="col-12 col-md-3 col-lg-2 btn btn-success"
+        (click)="save()"
+        [disabled]="!albumForm.valid"
+      >
+        <i class="bi bi-floppy"></i>
+        Salvar
+      </button>
+    </div>
+  </form>
+</section>
